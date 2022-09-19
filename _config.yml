@@ -22,11 +22,11 @@ title: Intro to DH Portfolio
 email: christopher.petrik@tufts.edu
 description: >- # this means to ignore newlines until "baseurl:"
 
-baseurl: "/intro_2_DH" # CHANGE THIS! the subpath of your site, e.g. /blog
+baseurl: "intro_2_DH" # CHANGE THIS! the subpath of your site, e.g. /blog
 url: "https://chrispetrik-tufts.github.io/" # CHANGE THIS the base hostname & protocol for your site, e.g. http://example.com
 permalink: /:categories/:year/:month/:day/:title:output_ext
 twitter_username: 
-github_username:  
+github_username:  chrispetrik-tufts
 
 # Build settings
 theme: minima
