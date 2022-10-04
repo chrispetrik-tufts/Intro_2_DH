@@ -1,3 +1,8 @@
+---
+layout: page
+title: Week 4 Exercises
+description: All the exercises due on week four!
+---
 ## 3.1 Names
 
 

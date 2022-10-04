@@ -1,3 +1,8 @@
+---
+layout: page
+title: Exercises Ch. 2 (mine)
+description: Select exercises from Python Crash Course
+---
 ## 2.1 Simple Message
 
 
