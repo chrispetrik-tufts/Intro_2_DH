@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Week 2 Reflection"
-date:   2022-10-07 18:21:49 -0400
+date:   2022-10-07 11:30:49 -0400
 categories: Reflection Post
 ---
 What are the humanities?
