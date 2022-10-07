@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Week 3 Reflection"
-date:   2022-10-07 18:21:49 -0400
+date:   2022-10-06 18:21:49 -0400
 categories: Blog Post Reflection
 ---
 What are the digital humanities?
