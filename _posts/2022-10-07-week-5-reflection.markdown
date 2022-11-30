@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Week 5 Reflection"
-date:   2022-07-10 18:21:49 -0400
+date:   2022-10-7 18:21:49 -0400
 categories: Blog Post
 ---
 I found one of the sentences from the article by professor Crane very interesting. Professor Crane wrote, “While we can certainly build smart texts, such technology is only a means to a larger goal: to foster the development of smarter readers.” In this section, professor Crane is talking about intertextual analysis in secondary readings. With the new tools in digital humanities, the person reading the text can easily see the citation and the article that the person is citing. In turn, they can determine whether the citation actually supports the argument that the person is making. In this way, the scholarship can come to a much higher level much faster. In turn, the scholar making these distinction within the text can make their own work better much faster, better showing their scholastic ability. 
