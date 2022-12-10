@@ -6,6 +6,8 @@ description: This lesson uses Bokeh.
 
 # THOR and The Basics of Bokeh
 
+### Source https://programminghistorian.org/en/lessons/visualizing-with-bokeh
+
 ## Reflection
 
 When I was looking through the examples for my programming historians, this one stood out because I could call this program THOR. THOR is the Theater History of Operations Reports, which lists aerial bombing operations during WW1, WW2, the Korean War, and the Vietnam War. This exercise has helped me refine my ability to load raw data, sample it, and visually explore and present the WWII THOR Dataset.
