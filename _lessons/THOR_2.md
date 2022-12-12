@@ -54,7 +54,7 @@ show(p)
 
 
 
-
+![png](../assets/THORImages/Screen%20Shot%202022-12-12%20at%203.59.49%20PM.png)
 
 
 
@@ -216,7 +216,7 @@ show(p)
     /var/folders/y2/2h61vb8j0_xd_5fr3b5wt2340000gn/T/ipykernel_63645/2481473550.py:12: FutureWarning: Indexing with multiple keys (implicitly converted to a tuple of keys) will be deprecated, use a list instead.
       grouped = df.groupby('COUNTRY_FLYING_MISSION')['TOTAL_TONS', 'TONS_HE', 'TONS_IC', 'TONS_FRAG'].sum()
 
-
+![png](../assets/THORImages/Screen%20Shot%202022-12-12%20at%204.00.49%20PM.png)
 
 
 
@@ -286,7 +286,7 @@ show(p)
 
 
 
-
+![png](../assets/THORImages/Screen%20Shot%202022-12-12%20at%204.01.04%20PM.png)
 
 
 
@@ -346,7 +346,7 @@ show(p)
     BokehDeprecationWarning: 'legend' keyword is deprecated, use explicit 'legend_label', 'legend_field', or 'legend_group' keywords instead
 
 
-
+![png](../assets/THORImages/Screen%20Shot%202022-12-12%20at%204.01.23%20PM.png)
 
 
 
@@ -408,7 +408,7 @@ show(p)
 
 
 
-
+![png](../assets/THORImages/Screen%20Shot%202022-12-12%20at%204.01.43%20PM.png)
 
 
 
@@ -464,7 +464,7 @@ show(p)
 
 
 
-
+![png](../assets/THORImages/Screen%20Shot%202022-12-12%20at%204.03.11%20PM.png)
 
 
 
@@ -538,7 +538,7 @@ show(p)
 
 
 
-
+![png](../assets/THORImages/Screen%20Shot%202022-12-12%20at%204.03.27%20PM.png)
 
 
 
