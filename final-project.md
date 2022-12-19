@@ -3,6 +3,18 @@ layout: page
 title: Final Project
 permalink: /final-project/
 ---
+# Reflection
+	I am working with pandas and spacy to find each location in Plutarch’s Lives and provide a map to help visualize all the places. I chose Plutarch because I am currently taking another course reading some of his Lives. Understanding the places he discusses would help me know how Plutarch conceptualizes the ancient world. Although I am working on a translation of Plutarch, the statistics should be similar, given that the names of locations tend to be translated consistently. 
+	The first step in this project was finding a suitable collection of Plutarch’s Lives. On the Project Gutenberg website, there is a translation of all of the Lives by Aubrey Stewart and George Long, both former fellows at Trinity College. All of the translations were contained in four volumes, which I would later combine. 
+	After finding the volumes, I needed to prepare the text to be suitable for code to scrape all the locations. First, I had to set a range for what the code would be searching. I made sure to cut out all areas not within the Lives themselves because they would skew the data. For example, the data would have many references to Dublin, London, and Cambridge because the book was published in Dublin and subsequently republished in London and Cambridge. Plutarch would not have been discussing these locations, and these locations would bring unwanted attention to the wrong parts of the map. I used a function called ‘cut_text’ to give the proper range. 
+	Moreover, I needed to break up the text into a CSV file so that my code from class would work on the new text. Since the lives are too large to put into one cell, I broke up the text by paragraph. Each time there were two line breaks, the function would create a new section. Then, the function would add this new paragraph to an empty list called ‘para_list.’ Since I have the data in a usable CSV file, I must now cut out all of the sections that are not part of Plutarch’s writing. Every paragraph that starts with ‘[Footnote’ got cut from the final list. 
+	Now, I will explain how I made the data accessible for ArcGIS. First, I imported spacy and pandas. Then, I imported all the locations from Gibbon and Peter’s collections. I wrote for loop using spacy, which then found everything in Plutarch labeled as a location, geopolitical entity, and nationalities or religious groups or political entities. I then put all these tagged entities into a CSV file and gave them their respective Pleiades ID tags, longitudes, and latitudes. I named this file ‘plutarch_places.csv.’ This CSV is now ready to be imported into ArcGIS. 
+	On ArcGIS, I used a map with different-sized circles to represent the number of times a location appears in the text. The higher the frequency, the larger the circle the place receives. This format is clear, and users can easily see the most discussed locations. For example, Rome and Athens have the largest circles. Moreover, the users can easily see the vast amount of distance Plutarch covers in his writing. Namely, his locations go from Gaul up to India. 
+	Although the map does a great job showing all the locations in the text, it could be better. Some of the places need to have the correct longitude and latitude. For example, the map says that ‘Iberia’ is in modern-day Georgia, but it should be in modern-day Spain. Moreover, the map does not take the nationalities into account. For example, the map does not give ‘Athens’ a tag whenever Plutarch discusses the ‘Athenians.’ Although this would be an excellent improvement to the map, people must know that the map is limited to locations and does not include nationalities. 
+	Overall, I think this map helps me better visualize the locations in Plutarch’s Lives. It gives a definitive frequency for how many times Plutarch mentions a given area. Moreover, it helps me visualize the expansive list of locations. Finally, it helps me to know what Plutarch is talking about in a given passage. For example, I did not know where Apollonia was when reading the Lives. With this map, I can easily find its location and say it is within modern-day Albania. In sum, this map helps me to visualize Plutarch’s locations better and gives me a better understanding of ancient geography. 
+
+
+
 # NER Plutarch
 
 Here are two links to the map on ArcGIS: 
@@ -17555,3 +17567,228 @@ pd.read_csv('plutarch_places.csv')
 </div>
 
 
+# Clean the Volumes
+
+
+```python
+with open("Complete_Plutarch.txt", encoding='utf8', mode='r') as f:
+    raw_text=f.read()
+```
+
+
+```python
+#get life of Theseus
+raw_text.find('whom we address as "the steadfast," and the "earth upholder.')
+```
+
+
+
+
+    106838
+
+
+
+
+```python
+start=45763
+end=106898
+volume_1_text=raw_text[start:end]
+```
+
+
+```python
+#find the end
+raw_text[106838:106898]
+```
+
+
+
+
+    'whom we address as "the steadfast," and the "earth upholder.'
+
+
+
+
+```python
+print(theseus_text)
+```
+
+
+    ---------------------------------------------------------------------------
+
+    NameError                                 Traceback (most recent call last)
+
+    Input In [5], in <cell line: 1>()
+    ----> 1 print(theseus_text)
+
+
+    NameError: name 'theseus_text' is not defined
+
+
+
+```python
+theseus_text_paragraphs=theseus_text.split('\n\n')
+```
+
+
+```python
+len(theseus_text_paragraphs)
+```
+
+
+```python
+for paragraph in theseus_text_paragraphs: 
+    print(paragraph[:10])
+```
+
+
+    ---------------------------------------------------------------------------
+
+    NameError                                 Traceback (most recent call last)
+
+    Input In [6], in <cell line: 1>()
+    ----> 1 for paragraph in theseus_text_paragraphs: 
+          2     print(paragraph[:10])
+
+
+    NameError: name 'theseus_text_paragraphs' is not defined
+
+
+
+```python
+def cut_text(string, start_char, end_char):
+    start=string.find(start_char)
+    end=string.find(end_char)
+    text=string[start:end+1]
+    return text
+```
+
+
+```python
+import os
+```
+
+
+```python
+text_list = []
+```
+
+
+```python
+for file in os.listdir('./plutarch_texts/'):
+    if not file.startswith('.'):
+        with open('./plutarch_texts/' +file, encoding='utf8', mode='r') as f:
+            string=f.read()
+        cut_string=cut_text(string=string, start_char='CONTENTS', end_char="LONDON: PRINTED")
+        text_list.append(cut_string)
+```
+
+
+```python
+len(text_list)
+```
+
+
+
+
+    4
+
+
+
+
+```python
+para_list = []
+```
+
+
+```python
+for text in text_list:
+    volume_list=text.split("\n\n")
+    for paragraph in volume_list:
+        if not paragraph.startswith('[Footnote'):
+            para_list.append(paragraph)
+```
+
+
+```python
+print(len(para_list))
+```
+
+    8590
+
+
+
+```python
+import pandas as pd
+```
+
+
+```python
+df = pd.DataFrame(para_list)
+```
+
+
+```python
+df.head()
+```
+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>0</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>CONTENTS.</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>LIFE OF PELOPIDAS                           ...</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td></td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td></td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>\nPLUTARCH'S LIVES.</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+
+```python
+df.to_csv('plutarch_paragraphs.csv')
+```
+
+
+```python
+
+```
