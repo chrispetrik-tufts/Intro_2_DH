@@ -17,12 +17,10 @@ Overall, I think this map helps me better visualize the locations in Plutarch’
 
 # NER Plutarch
 
-Here are two links to the map on ArcGIS: 
-https://tuftsgis.maps.arcgis.com/apps/instant/basic/index.html?appid=cc2b962ace4a48d3b6ce9b8cd2db14be
+Here is the link to the map on ArcGIS: 
+[link](https://tuftsgis.maps.arcgis.com/apps/instant/basic/index.html?appid=cc2b962ace4a48d3b6ce9b8cd2db14be)
 
-https://tuftsgis.maps.arcgis.com/apps/instant/basic/index.html?appid=cc2b962ace4a48d3b6ce9b8cd2db14be
 
-I am including two in case one link is broken.
 
 
 ```python
